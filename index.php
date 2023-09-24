@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,16 +42,21 @@
         <img src="./images/booking.jpg">
         <ul>
             <li><a href="index.php">Home</a></li>
-                  
+            
             <li><a href="ticketrate.html">Ticket Rate</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
         </ul>
-        <a href="login.php" id="login"><button >Login</button></a>
+        <?php if(isset($_SESSION["id"])){ ?>
+            <a href="logout.php" id="login"><button >Logout</button></a>
+        <?php }else{ ?>
+            <a href="login.php" id="login"><button >Login</button></a>
+        <?php } ?>
     </nav>
+    <?php $check = $_SESSION["id"]; echo($check); ?>
     <main><div class="main-bg">
-    <div class="carousel-title">Now Showing</div>
-    <div class="owl-carousel">
-
+        <div class="carousel-title">Now Showing</div>
+        <div class="owl-carousel">
+            
         <?php
         $conn = mysqli_connect("localhost", "root", "", "movies");
         $table_sql = "SELECT * FROM `nowshowing`";

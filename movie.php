@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
     $movie = $_GET["movie"];
     $conn = mysqli_connect("localhost", "root", "", "movies");
     $table_sql = "SELECT * FROM `nowshowing` WHERE `title` = '$movie'";
