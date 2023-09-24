@@ -1,0 +1,39 @@
+body{
+    background: url("https://onecinemas.com.np/Templates/OneCinemas/images/One%20Cinema%20PatternTop.svg");
+    background-repeat: no-repeat;
+    top: 0;
+    background-size: contain;
+}
+
+.ticket-container{
+    width: 65%;
+    min-height: 800px;
+    min-width: 300px;
+    margin: 20px auto;
+    border-radius: 15px;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+}
+
+.title{
+    background-color: #111111;
+    color: white  ;
+    border: 2px solid darkblue;
+    border-radius: 15px;
+    height: 50px;
+}
+
+th:not(.title){
+    height: 80px;
+    background-color: #222222;
+    color: white;    
+    border: 2px solid darkblue;
+    border-radius: 15px;
+}
+
+td:not(th){
+    background: #303030;
+    color: white;
+    border-radius: 15px;
+}

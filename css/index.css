@@ -1,0 +1,108 @@
+*{
+    font-family: "Arvo",'Times New Roman', Times, serif;
+
+}
+
+.ns-image{
+    height: 400px;
+    width: 250px;
+    padding: 30px;
+    transition: all 200ms ease-in-out;
+}
+
+main{
+    background: url("https://onecinemas.com.np/Templates/OneCinemas/images/One%20Cinema%20PatternTop.svg");
+    background-repeat: no-repeat;
+    top: 0;
+}
+
+.main-bg{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.now-showing, .cs-movies{
+    font-size: xx-large;
+    padding-top: 10px;
+    color: #ffb700;
+    text-align: center;
+}
+ .ns-image:hover{
+    transform: scale(1.2);
+    margin: 0 30px;
+}
+
+.transparent-layer{
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px 0;
+}
+
+footer{
+    background:  url("https://onecinemas.com.np/Templates/OneCinemas/images/One%20Cinema%20PatternButton.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--oxford-blue-50);
+}
+.footer-brand{
+    display: block;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+}
+.footer-logo{
+    width: 100px !important;
+    height: auto !important; 
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.slogan{
+    font-size: var(--fs-sm);
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+.social-links a { display: inline-block; }
+
+.social-links ion-icon{
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.footer-links{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:50px;
+    align-items:flex-end;
+    color: black !important;
+
+}
+
+.link-heading { margin-bottom: 20px;}
+
+.link-item, .link-item a { 
+    color: black;
+    list-style: none;
+    text-decoration: none;
+    font-size: var(--fs-sm);
+}
+ul .link-item:not(:last-child) { margin-bottom: 10px;}
+.link-item:hover a { color:var(--light-azure);}
+
+.footer-copyright {
+    display: flex;
+    margin: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carousel-title{
+    font-size: 2em;
+    text-align: center;
+}

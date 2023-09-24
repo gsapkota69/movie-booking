@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+main{
+    background-color: white;
+    width: 80%;
+    margin: 10vh auto;
+    min-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.seats{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.seat{
+    flex: 1 0 21%;
+}
+
+.seat img{
+    width: 30px;
+    height: auto;
+}

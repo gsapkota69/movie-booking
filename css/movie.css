@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none !important;
+    color: black !important;
+
+}
+body{
+  
+    background: url("https://onecinemas.com.np/Templates/OneCinemas/images/One%20Cinema%20PatternTop.svg");
+ 
+    
+} 
+img{
+    width:75%;
+}

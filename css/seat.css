@@ -1,0 +1,119 @@
+
+* {
+  box-sizing: border-box; /* remove padding from element width */
+}
+
+body {
+  background-color: #242333;
+  color: #fff;
+  display: flex;
+  flex-direction: column; /* changes flex-direction from default of row to a column */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+.movie-container {
+  margin: 20px 0; /* top/bottom left/right */
+}
+
+.movie-container select { /* we are styling the select tag dropdown so it appears the same across browsers! */
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 5px 15px 5px 15px; /* top right bottom left */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  /* appearance (-moz-appearance, -webkit-appearance) - The appearance CSS property is used to display an element using platform-native styling, based on the operating system's theme. The -moz-appearance and -webkit-appearance properties are non-standard versions of this property, used (respectively) by Gecko (Firefox) and by WebKit-based (e.g., Safari) and Blink-based (e.g., Chrome, Opera) browsers to achieve the same thing. Note that Firefox and Edge also support -webkit-appearance, for compatibility reasons. */
+}
+
+.container { /* contains the screen div and all row divs together */
+  perspective: 1000px; /* gives tilted effect to screen */
+  margin-bottom: 30px; /* separates bottom of container from p text beneath it */
+}
+
+.seat {
+  background-color: #444451;
+  height: 12px;
+  width: 15px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.seat.selected {
+  background-color: #6feaf6;
+}
+
+.seat.occupied {
+  background-color: #fff;
+}
+
+/* Set 2 aisles up and down on each side of 'theater'. */
+
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+.seat:nth-last-of-type(2) { /* counts two in from the last of type */
+  margin-left: 18px;
+}
+
+.seat:not(.occupied):hover { /* On hover, when seat class does not include class of occupied... */
+  cursor: pointer; /* change cursor to a pointer hand */
+  transform: scale(1.2); /* scales seat to larger size on hover */
+}
+
+.showcase .seat:not(.occupied):hover { /* On hover, when seat class does not include class of occupied WITHIN THE SHOWCASE DIV... */
+  cursor: default; /* specifies not to change cursor on these .seats */
+  transform: scale(1); /* specifies not to transform these .seats */
+}
+
+.showcase {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none; /* get rid of bullet-points */
+  display: flex;
+  justify-content: space-between; 
+}
+
+/* justify-content: space-between:
+The items are evenly distributed within the alignment container along the main axis. The spacing between each pair of adjacent items is the same. The first item is flush with the main-start edge, and the last item is flush with the main-end edge. */
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;  
+}
+
+.showcase li small {
+  margin-left: 8px;
+}
+
+.row {
+  display: flex; /* horizontally aligns the seat divs of each row */
+}
+
+.screen {
+  background-color: #fff;
+  height: 70px;
+  width: 100%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7); /* white blur effect of light coming off screen */
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6; /* gives seat and price number spans a blue color for emphasis */
+}
