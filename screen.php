@@ -6,114 +6,125 @@
 5. Added esewa form in the end of the page, check line 115-127
 -->
 <?php
+session_start();
 $movie = $_GET['movie'];
+if (!isset($_SESSION['id'])) {
+  echo ("<script>alert('Login to continue'); window.location.href='login.php';</script>");
+}
 $time = $_GET['time'];
 $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako time lai rate maa convert garna lai
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/screen.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/screen.css">
 </head>
+
 <body>
-    <div class="movie-container">
-      <label for="">Pick a movie:</label>
-      <select id="movie">
-        <option <?php if($movie=="barbie") echo("selected"); ?> value="<?php echo($rate); ?>">Barbie</option>
-        <option <?php if($movie=="Transformers") echo("selected");?> value="<?php echo($rate); ?>">Transformers</option>
-        <option <?php if($movie=="Opp") echo("selected");?> value="<?php echo($rate); ?>">Oppenheimer</option>
-        <option <?php if($movie=="mi-dr") echo("selected");?> value="<?php echo($rate); ?>">Mission Impossible</option>
-        <option <?php if($movie=="bladerunner") echo("selected");?> value="<?php echo($rate); ?>">Blade Runner 2</option>
-      </select>
+  <div class="movie-container">
+    <label for="">Pick a movie:</label>
+    <select id="movie">
+      <option <?php if ($movie == "barbie")
+        echo ("selected"); ?> value="<?php echo ($rate); ?>">Barbie</option>
+      <option <?php if ($movie == "Transformers")
+        echo ("selected"); ?> value="<?php echo ($rate); ?>">Transformers</option>
+      <option <?php if ($movie == "Opp")
+        echo ("selected"); ?> value="<?php echo ($rate); ?>">Oppenheimer</option>
+      <option <?php if ($movie == "mi-dr")
+        echo ("selected"); ?> value="<?php echo ($rate); ?>">Mission Impossible</option>
+      <option <?php if ($movie == "bladerunner")
+        echo ("selected"); ?> value="<?php echo ($rate); ?>">Blade Runner 2</option>
+    </select>
+  </div>
+
+  <ul class="showcase">
+    <li>
+      <div class="seat"></div>
+      <small>N/A</small>
+    </li>
+    <li>
+      <div class="seat selected"></div>
+      <small>Selected</small>
+    </li>
+    <li>
+      <div class="seat"></div>
+      <small< /small>
+    </li>
+  </ul>
+
+  <div class="container">
+    <div class="screen"></div>
+
+    <div class="row">
+      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
     </div>
-  
-    <ul class="showcase">
-      <li>
-        <div class="seat"></div>
-        <small>N/A</small>
-      </li>
-      <li>
-        <div class="seat selected"></div>
-        <small>Selected</small>
-      </li>
-      <li>
-        <div class="seat"></div>
-        <small</small>
-      </li>
-    </ul>
-    
-    <div class="container">
-      <div class="screen"></div>
-  
-      <div class="row">
-        <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
+    <div class="row">
+      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
     </div>
-  
-    <p class="text">You have selected <span id="count">0</span> seats for a price of Rs. <span id="total">0</span></p>
-  
-    <!-- Payment -->
-    <form action="https://uat.esewa.com.np/epay/main" method="POST">
+    <div class="row">
+      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+    <div class="row">
+      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+    <div class="row">
+      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+    <div class="row">
+      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+  </div>
+
+  <p class="text">You have selected <span id="count">0</span> seats for a price of Rs. <span id="total">0</span></p>
+
+  <!-- Payment -->
+  <form action="https://uat.esewa.com.np/epay/main" method="POST">
     <input value="" name="tAmt" id="tAmt" type="hidden">
     <input value="" name="amt" id="amt" type="hidden">
     <input value="" name="txAmt" id="txAmt" type="hidden">
@@ -124,7 +135,8 @@ $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako
     <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
     <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
     <input onclick="esewa()" class="btn btn-primary" type="submit" value="Confirm Purchase">
-    </form>
-    <script src="./js/screen.js"></script>
-  </body>
-  </html>
+  </form>
+  <script src="./js/screen.js"></script>
+</body>
+
+</html>
