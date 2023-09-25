@@ -1,6 +1,5 @@
 *{
     font-family: "Arvo",'Times New Roman', Times, serif;
-
 }
 
 .ns-image{
@@ -26,7 +25,7 @@ main{
     color: #ffb700;
     text-align: center;
 }
- .ns-image:hover{
+.ns-image:hover{
     transform: scale(1.2);
     margin: 0 30px;
 }
