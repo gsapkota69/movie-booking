@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     } else {
         // Use a regular expression to validate the credit card number
         if (!preg_match('/^[0-9]{16}$/', $creditcardno)) {
-            echo "Invalid credit card number.";
+            echo "<script>alert('Invalid credit card number.')</script>";
         } else {
             $sql = "INSERT INTO payment (fullname, email, address, city, creditcardno) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);

@@ -48,13 +48,12 @@ session_start();
         </ul>
         <?php if(isset($_SESSION["id"])){ ?>
             <a href="logout.php" id="login"><button >Logout</button></a>
-        <?php }else{ ?>
+            <?php if($_SESSION["isAdmin"] == true){ ?>
+                <a href="admin.php" id="login"><button >Admin</button></a>
+        <?php }}else{ ?>
             <a href="login.php" id="login"><button >Login</button></a>
         <?php } ?>
     </nav>
-    <?
-     $check = isset($_SESSION["id"]) ? $_SESSION["id"] : "Not Logged In";
-     echo($check); ?>
     <main><div class="main-bg">
         <div class="carousel-title">Now Showing</div>
         <div class="owl-carousel">
@@ -63,8 +62,7 @@ session_start();
         $conn = mysqli_connect("localhost", "root", "", "movies");
         $table_sql = "SELECT * FROM `nowshowing`";
         $table_query = mysqli_query($conn, $table_sql);
-        $movie_data = mysqli_fetch_assoc($table_query);
-        if(!$movie_data>0){
+        if(!mysqli_num_rows($table_query)>0){
             die("No data found"); 
         }else{
             while($movie_data = mysqli_fetch_assoc($table_query)){
@@ -81,8 +79,7 @@ session_start();
         $conn = mysqli_connect("localhost", "root", "", "movies");
         $table_sql = "SELECT * FROM `comingsoon`";
         $table_query = mysqli_query($conn, $table_sql);
-        $movie_data = mysqli_fetch_assoc($table_query);
-        if(!$movie_data>0){
+        if(!mysqli_num_rows($table_query)>0){
             die("No data found"); 
         }else{
             while($movie_data = mysqli_fetch_assoc($table_query)){

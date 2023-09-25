@@ -18,8 +18,7 @@ if (isset($_POST['submit'])) {
         if ($password == $row["password"]) {
             $_SESSION["isAdmin"] = false;
             $_SESSION["id"]    = $row["id"];
-            $check = $_SESSION["id"];
-            echo "<script> alert('Login succesful id: $check'); window.location.href='index.php';</script>";
+            header("location:index.php");
         } else {
             echo "<script> alert('Wrong Password'); </script>";
         }
