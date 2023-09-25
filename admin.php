@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true)
 {
 	header('location:loginAdmin.php');
 }
