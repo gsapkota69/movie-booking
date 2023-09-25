@@ -51,53 +51,55 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Payment</title>
     <link rel="stylesheet" href="./css/payment.css">
 </head>
+
 <body>
-<header>
-    <div class="container">
-        <div class="left">
-            <h3>BILLING ADDRESS</h3>
+    <header>
+        <div class="container">
             <form method="post">
-                Full name
-                <input type="text" name="fullname" placeholder="Enter name" required>
-                Email
-                <input type="email" name="email" placeholder="Enter email" required>
+                <div class="left">
+                    <h3>BILLING ADDRESS</h3>
 
-                Address
-                <input type="text" name="address" placeholder="Enter address" required>
+                    Full name
+                    <input type="text" name="fullname" placeholder="Enter name" required>
+                    Email
+                    <input type="text" name="email" placeholder="Enter email" required> <br>
 
-                City
-                <input type="text" name="city" placeholder="Enter City" required>
-                <div id="zip">
+                    Address
+                    <input type="text" name="address" placeholder="Enter address" required>
+
+                    City
+                    <input type="text" name="city" placeholder="Enter City" required>
+                    <div id="zip">
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="right">
-            <h3>PAYMENT</h3>
-                Accepted Card <br>
-                <img src="images/card1.png" width="100">
-                <img src="images/card2.png" width="50">
-                <br><br>
 
-                Credit card number
-                <input type="text" name="creditcardno" placeholder="Enter card number" required>
+                <div class="right">
+                    <h3>PAYMENT</h3>
+                    Accepted Card <br>
+                    <img src="images/card1.png" width="100">
+                    <img src="images/card2.png" width="50">
+                    <br><br>
 
-                <!-- Remove this duplicate form submission -->
-                <!-- <input type="submit" name="submit" value="Confirm Booking"> -->
+                    Credit card number
+                    <input type="text" name="creditcardno" placeholder="Enter card number" required>
 
-                <!-- Keep only one submit button at the end of the form -->
-                <input type="submit" name="submit" value="Confirm Booking">
+                    <!-- Remove this duplicate form submission -->
+                    <!-- <input type="submit" name="submit" value="Confirm Booking"> -->
+
+                    <!-- Keep only one submit button at the end of the form -->
+                    <input type="submit" name="submit" value="Confirm Booking">
+
+                </div>
             </form>
         </div>
-    </div>
-</header>
+    </header>
 </body>
+
 </html>
-
-
-
