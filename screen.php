@@ -126,6 +126,10 @@ $rate = ($time == "morning" ? 200 : 350);
         alert('Please select at least one seat before confirming your purchase.');
         event.preventDefault(); // Prevent the default behavior (form submission)
       }
+      else {
+      // Redirect to payment.php when seats are selected
+      window.location.href = "payment.php";
+    }
     });
   </script>
 </body>
