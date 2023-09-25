@@ -52,7 +52,7 @@ $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako
     </li>
     <li>
       <div class="seat"></div>
-      <small< /small>
+      <small></small>
     </li>
   </ul>
 
@@ -124,18 +124,7 @@ $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako
   <p class="text">You have selected <span id="count">0</span> seats for a price of Rs. <span id="total">0</span></p>
 
   <!-- Payment -->
-  <form action="https://uat.esewa.com.np/epay/main" method="POST">
-    <input value="" name="tAmt" id="tAmt" type="hidden">
-    <input value="" name="amt" id="amt" type="hidden">
-    <input value="" name="txAmt" id="txAmt" type="hidden">
-    <input value="" name="psc" id="psc" type="hidden">
-    <input value="" name="pdc" id="pdc" type="hidden">
-    <input value="epay_payment" name="scd" id="scd" type="hidden">
-    <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
-    <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
-    <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
-    <input onclick="esewa()" class="btn btn-primary" type="submit" value="Confirm Purchase">
-  </form>
+  <a href="payment.html"> <input type="submit" value="Confirm Purchase"></a>
   <script src="./js/screen.js"></script>
 </body>
 
