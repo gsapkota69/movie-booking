@@ -35,6 +35,7 @@ if (isset($_POST['submit'])) {
                 mysqli_stmt_bind_param($stmt, "sssss", $fullname, $email, $address, $city, $creditcardno);
                 if (mysqli_stmt_execute($stmt)) {
                     echo "Payment successful!";
+                    header("Location: index.php");
                 } else {
                     echo "Error: " . mysqli_error($conn);
                 }
