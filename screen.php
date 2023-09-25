@@ -124,7 +124,7 @@ $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako
   <p class="text">You have selected <span id="count">0</span> seats for a price of Rs. <span id="total">0</span></p>
 
   <!-- Payment -->
-  <a href="payment.html"> <input type="submit" value="Confirm Purchase"></a>
+  <a href="payment.php"> <input type="submit" value="Confirm Purchase"></a>
   <script src="./js/screen.js"></script>
 </body>
 
