@@ -52,7 +52,9 @@ session_start();
             <a href="login.php" id="login"><button >Login</button></a>
         <?php } ?>
     </nav>
-    <?php $check = $_SESSION["id"]; echo($check); ?>
+    <?
+     $check = isset($_SESSION["id"]) ? $_SESSION["id"] : "Not Logged In";
+     echo($check); ?>
     <main><div class="main-bg">
         <div class="carousel-title">Now Showing</div>
         <div class="owl-carousel">
