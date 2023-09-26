@@ -1,10 +1,5 @@
-<!-- All Changes:
-1. nowshowing.php ko 104, 110, 114 maa get method bata morning select garya ki not morning, tei anusaar pathaako xa look at the anchor.
-2. screen.php maa nowshowing bata get method use garera aako time bhanne variable leko xa
-3. here, Line 22-25, php wala if condition haaleko xa select garna ko laagi, match the case and name as it is written in the database
-4. Check after line 48 in screen.js
-5. Added esewa form in the end of the page, check line 115-127
--->
+
+
 <?php
 session_start();
 $movie = $_GET['movie'];
@@ -12,7 +7,7 @@ if (!isset($_SESSION['id'])) {
   echo ("<script>alert('Login to continue'); window.location.href='login.php';</script>");
 }
 $time = $_GET['time'];
-$rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako time lai rate maa convert garna lai
+$rate = ($time == "morning" ? 200 : 350);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,16 +23,11 @@ $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako
   <div class="movie-container">
     <label for="">Pick a movie:</label>
     <select id="movie">
-      <option <?php if ($movie == "barbie")
-        echo ("selected"); ?> value="<?php echo ($rate); ?>">Barbie</option>
-      <option <?php if ($movie == "Transformers")
-        echo ("selected"); ?> value="<?php echo ($rate); ?>">Transformers</option>
-      <option <?php if ($movie == "Opp")
-        echo ("selected"); ?> value="<?php echo ($rate); ?>">Oppenheimer</option>
-      <option <?php if ($movie == "mi-dr")
-        echo ("selected"); ?> value="<?php echo ($rate); ?>">Mission Impossible</option>
-      <option <?php if ($movie == "bladerunner")
-        echo ("selected"); ?> value="<?php echo ($rate); ?>">Blade Runner 2</option>
+      <option <?php if ($movie == "barbie") echo ("selected"); ?> value="<?php echo ($rate); ?>">Barbie</option>
+      <option <?php if ($movie == "Transformers") echo ("selected"); ?> value="<?php echo ($rate); ?>">Transformers</option>
+      <option <?php if ($movie == "Opp") echo ("selected"); ?> value="<?php echo ($rate); ?>">Oppenheimer</option>
+      <option <?php if ($movie == "mi-dr") echo ("selected"); ?> value="<?php echo ($rate); ?>">Mission Impossible</option>
+      <option <?php if ($movie == "bladerunner") echo ("selected"); ?> value="<?php echo ($rate); ?>">Blade Runner 2</option>
     </select>
   </div>
 
@@ -117,8 +107,22 @@ $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako
   <div hidden id="occupiedArray">{}</div>
 
   <!-- Payment -->
-  <a href="payment.php" onclick="occupySeat()"> <input type="submit" value="Confirm Purchase"></a>
+  <a href="payment.php"> <input type="submit" value="Confirm Purchase"></a>
   <script src="./js/screen.js"></script>
+  <script>
+    document.getElementById('confirmButton').addEventListener('click', function (event) {
+      var selectedSeats = document.querySelectorAll('.row .seat.selected');
+
+      if (selectedSeats.length === 0) {
+        alert('Please select at least one seat before confirming your purchase.');
+        event.preventDefault(); // Prevent the default behavior (form submission)
+      }
+      else {
+      // Redirect to payment.php when seats are selected
+      window.location.href = "payment.php";
+    }
+    });
+  </script>
 </body>
 
 </html>
