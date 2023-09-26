@@ -8,7 +8,6 @@ const button = document.getElementById('pay');
 let ticketPrice = +selectedMovie.value; // '+' changes the value number from string form to an int, similar to parseInt(). 
 
 let selectedSeats = document.querySelectorAll('.row .seat.selected');
-
 // Functions:
 
 function updateCount() {
@@ -35,6 +34,8 @@ seats.forEach(seat => {
   seat.addEventListener('click', e => {
     seat.classList.toggle('selected'); // toggle must come before assigning toggled element to a list we can work with!
     updateCount();
+    document.getElementById('occupiedArray').innerText = Array.from(selectedSeats).map(seat => seat.id);
+    console.log(document.getElementById('occupiedArray').innerText);
   })
 })
 

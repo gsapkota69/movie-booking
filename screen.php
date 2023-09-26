@@ -60,71 +60,64 @@ $rate = ($time == "morning" ? 200 : 350); // ternary operator use gareko xa aako
     <div class="screen"></div>
 
     <div class="row">
-      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+      <div class="seat" id="seat1"></div>
+      <div class="seat" id="seat2"></div>
+      <div class="seat" id="seat3"></div>
+      <div class="seat" id="seat4"></div>
+      <div class="seat" id="seat5"></div>
+      <div class="seat" id="seat6"></div>
+      <div class="seat" id="seat7"></div>
+      <div class="seat" id="seat8"></div>
     </div>
     <div class="row">
-      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+      <div class="seat" id="seat9"></div>
+      <div class="seat" id="seat10"></div>
+      <div class="seat" id="seat11"></div>
+      <div class="seat" id="seat12"></div>
+      <div class="seat" id="seat13"></div>
+      <div class="seat" id="seat14"></div>
+      <div class="seat" id="seat15"></div>
+      <div class="seat" id="seat16"></div>
     </div>
     <div class="row">
-      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+    <div class="seat" id="seat17"></div>
+      <div class="seat" id="seat18"></div>
+      <div class="seat" id="seat19"></div>
+      <div class="seat" id="seat21"></div>
+      <div class="seat" id="seat22"></div>
+      <div class="seat" id="seat23"></div>
+      <div class="seat" id="seat24"></div>
+      <div class="seat" id="seat25"></div>
     </div>
     <div class="row">
-      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+    <div class="seat" id="seat26"></div>
+      <div class="seat" id="seat27"></div>
+      <div class="seat" id="seat28"></div>
+      <div class="seat" id="seat29"></div>
+      <div class="seat" id="seat30"></div>
+      <div class="seat" id="seat31"></div>
+      <div class="seat" id="seat32"></div>
+      <div class="seat" id="seat33"></div>
     </div>
     <div class="row">
-      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+    <div class="seat" id="seat34"></div>
+      <div class="seat" id="seat35"></div>
+      <div class="seat" id="seat36"></div>
+      <div class="seat" id="seat37"></div>
+      <div class="seat" id="seat38"></div>
+      <div class="seat" id="seat39"></div>
+      <div class="seat" id="seat40"></div>
+      <div class="seat" id="seat41"></div>
     </div>
-    <div class="row">
-      <div class="seat"></div> <!-- short-hand is .seat*8 and the enter key-->
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
+
   </div>
 
   <p class="text">You have selected <span id="count">0</span> seats for a price of Rs. <span id="total">0</span></p>
 
+  <div hidden id="occupiedArray">{}</div>
+
   <!-- Payment -->
-  <a href="payment.php"> <input type="submit" value="Confirm Purchase"></a>
+  <a href="payment.php" onclick="occupySeat()"> <input type="submit" value="Confirm Purchase"></a>
   <script src="./js/screen.js"></script>
 </body>
 
