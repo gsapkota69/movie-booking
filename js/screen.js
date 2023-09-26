@@ -4,6 +4,7 @@ const count = document.getElementById('count');
 const total = document.getElementById('total');
 const selectedMovie = document.getElementById('movie');
 const button = document.getElementById('pay');
+let occupiedSeats = [];
 
 let ticketPrice = +selectedMovie.value; // '+' changes the value number from string form to an int, similar to parseInt(). 
 
@@ -34,8 +35,6 @@ seats.forEach(seat => {
   seat.addEventListener('click', e => {
     seat.classList.toggle('selected'); // toggle must come before assigning toggled element to a list we can work with!
     updateCount();
-    document.getElementById('occupiedArray').innerText = Array.from(selectedSeats).map(seat => seat.id);
-    console.log(document.getElementById('occupiedArray').innerText);
   })
 })
 
@@ -53,7 +52,32 @@ function occupySeat(){
     count.innerText = 0;
     total.innerText = 0;
   })
+  //append all selected seats to sessions storage
+  occupiedSeats = JSON.parse(sessionStorage.getItem('occupiedSeats'));
+  if(occupiedSeats === null){
+    occupiedSeats = [];
+  }
+  selectedSeats.forEach(seat => {
+    occupiedSeats.push(seat.id);
+  }
+  )
+  sessionStorage.setItem('occupiedSeats', JSON.stringify(occupiedSeats));
+  console.log(sessionStorage.getItem('occupiedSeats'));
 }
+
+function readFromSession(){
+  const occupiedSeats = JSON.parse(sessionStorage.getItem('occupiedSeats'));
+  console.log(occupiedSeats);
+  if(occupiedSeats !== null && occupiedSeats.length > 0){
+    seats.forEach(seat => {
+      if(occupiedSeats.indexOf(seat.id) > -1){
+        seat.classList.add('occupied');
+      }
+    })
+  }
+}
+
+readFromSession();
 
 //Set money for esewa
 function esewa(){

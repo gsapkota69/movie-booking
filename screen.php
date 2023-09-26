@@ -107,7 +107,7 @@ $rate = ($time == "morning" ? 200 : 350);
   <div hidden id="occupiedArray">{}</div>
 
   <!-- Payment -->
-  <a href="payment.php"> <input type="submit" value="Confirm Purchase"></a>
+  <a href="payment.php"> <input type="submit" value="Confirm Purchase" id="confirmButton"></a>
   <script src="./js/screen.js"></script>
   <script>
     document.getElementById('confirmButton').addEventListener('click', function (event) {
@@ -119,6 +119,7 @@ $rate = ($time == "morning" ? 200 : 350);
       }
       else {
       // Redirect to payment.php when seats are selected
+      occupySeat();
       window.location.href = "payment.php";
     }
     });
