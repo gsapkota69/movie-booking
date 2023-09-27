@@ -33,8 +33,11 @@ function clearSeats() {
 
 seats.forEach(seat => {
   seat.addEventListener('click', e => {
-    seat.classList.toggle('selected'); // toggle must come before assigning toggled element to a list we can work with!
-    updateCount();
+    //select only if the seat is not occupied
+    if(!seat.classList.contains('occupied')){
+      seat.classList.toggle('selected');
+      updateCount();
+    }
   })
 })
 
