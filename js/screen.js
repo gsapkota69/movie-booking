@@ -68,6 +68,11 @@ function occupySeat(){
   console.log(sessionStorage.getItem('occupiedSeats'));
 }
 
+function returnOccupied(){
+  occupiedSeats = JSON.parse(sessionStorage.getItem('occupiedSeats'));
+  document.getElementById('occupiedSeats').value = occupiedSeats;
+}
+
 function readFromSession(){
   const occupiedSeats = JSON.parse(sessionStorage.getItem('occupiedSeats'));
   console.log(occupiedSeats);

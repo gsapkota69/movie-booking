@@ -18,6 +18,9 @@ if (isset($_POST['submit'])) {
     $address = $_POST['address'];
     $city = $_POST['city'];
     $creditcardno = $_POST['creditcardno'];
+    $occupiedSeats = $_POST['occupiedSeats'];
+    $movie = $_POST['movie'];
+    $time = $_POST['time'];
 
     // Perform server-side validation
     // You should add more specific validation rules here.
@@ -34,6 +37,8 @@ if (isset($_POST['submit'])) {
             if ($stmt) {
                 mysqli_stmt_bind_param($stmt, "sssss", $fullname, $email, $address, $city, $creditcardno);
                 if (mysqli_stmt_execute($stmt)) {
+                    $sql = "INSERT INTO nowshowing (occupiedSeats) VALUES ('$occupiedSeats') WHERE movie = '$movie'";
+                    mysqli_query($conn, $sql);
                     echo "Payment successful!";
                     header("Location: index.php");
                 } else {
@@ -95,7 +100,7 @@ if (isset($_POST['submit'])) {
 
                     <!-- Keep only one submit button at the end of the form -->
                     <input type="submit" name="submit" value="Confirm Booking">
-
+                    <div hidden id="occupiedSeats" value=""></div>
                 </div>
             </form>
         </div>
