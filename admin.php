@@ -249,7 +249,7 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
                                     class="line"></span>
                                 <?php
                                 $conn        = mysqli_connect("localhost", "root", "", "movies");
-                                $table_sql   = "SELECT * FROM `admin`";
+                                $table_sql   = "SELECT * FROM `payment`";
                                 $table_query = mysqli_query($conn, $table_sql);
                                 if (!mysqli_num_rows($table_query) > 0) {
                                     echo ("No data found");
