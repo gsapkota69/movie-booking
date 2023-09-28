@@ -42,27 +42,14 @@ session_start();
                     <div>
                         <h2>Viewing Times</h2>
                     </div>
-                    <div class="d-flex">
-                        <p>sold</p>
-                        <p class="bg-danger p-3 rounded-circle me-2"></p>
-                        <p>Fast-Filling</p>
-                        <p class="bg-warning p-3 rounded-circle me-2"></p>
-                        <p>Available</p>
-                        <p class="bg-success p-3 rounded-circle me-2"></p>
-                    </div>
-                    <div class="d-flex">
-                        <p class="border border-success rounded-circle mx-2"><a href="" class="p-3">today</a></p>
-                        <p class="border border-success rounded-circle mx-2"><a href="" class="p-3">tomm</a></p>
-                        <p class="border border-success rounded-circle mx-2"><a href="" class="p-3">aug28</a></p>
-                        <p class="border border-success rounded-circle mx-2"><a href="" class="p-3">aug30</a></p>
-                    </div>
+                    
 
 
                 </div>
                 <div class="my-3 bg-dark text-light py-3">
                     <div class="row">
                         <div class="col-md-2 bg-white text-dark p-3 rounded ms-5 ">
-                            <h6 class="">New Baneshwor</h6>
+                            <h6 class="">Hall 1</h6>
                         </div>
                         <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
                             <h6><a href="screen.php?time=morning&movie=<?php echo($movie)?>">7:30 AM</a></h6>
@@ -81,44 +68,8 @@ session_start();
                    
                     
                 </div>
-                <div class="my-3 bg-dark text-light py-3">
-                    <div class="row">
-                        <div class="col-md-2 bg-white text-dark p-3 rounded ms-5 ">
-                            <h6 class="">Labim Mall</h6>
-                        </div>
-                        <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
-                            <h6><a href="screen.php?time=morning&movie=<?php echo($movie)?>">7:30 AM</a></h6>
-
-                        </div>
-                        <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
-                            <h6><a href="screen.php?time=notmorning&movie=<?php echo($movie)?>">11:45 AM</a></h6>
-
-                        </div>
-                        <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
-                            <h6><a href="screen.php?time=notmorning&movie=<?php echo($movie)?>">2 PM</a></h6>
-
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="my-3 bg-dark text-light py-3">
-                    <div class="row">
-                        <div class="col-md-2 bg-white text-dark p-3 rounded ms-5 ">
-                            <h6 class="">Chabahil</h6>
-                        </div>
-                        <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
-                            <h6><a href="screen.php?time=morning&movie=<?php echo($movie)?>">7:30 AM</a></h6>
-
-                        </div>
-                        <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
-                            <h6><a href="screen.php?time=notmorning&movie=<?php echo($movie)?>">11:45 AM</a></h6>
-
-                        </div>
-                        <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
-                            <h6><a href="screen.php?time=notmorning&movie=<?php echo($movie)?>">2 PM</a></h6>
-
-                        </div>
-                        
+               
+                
                     </div>
                 </div>
             </div>

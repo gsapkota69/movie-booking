@@ -21,13 +21,11 @@ $rate = ($time == "morning" ? 200 : 350);
 
 <body>
   <div class="movie-container">
-    <label for="">Pick a movie:</label>
+    <label for="">Selected Movie</label>
     <select id="movie">
-      <option <?php if ($movie == "barbie") echo ("selected"); ?> value="<?php echo ($rate); ?>">Barbie</option>
-      <option <?php if ($movie == "Transformers") echo ("selected"); ?> value="<?php echo ($rate); ?>">Transformers</option>
-      <option <?php if ($movie == "Opp") echo ("selected"); ?> value="<?php echo ($rate); ?>">Oppenheimer</option>
-      <option <?php if ($movie == "mi-dr") echo ("selected"); ?> value="<?php echo ($rate); ?>">Mission Impossible</option>
-      <option <?php if ($movie == "bladerunner") echo ("selected"); ?> value="<?php echo ($rate); ?>">Blade Runner 2</option>
+      <option value="<?php echo ($rate); ?>">
+        <?php echo($movie); ?>
+      </option>
     </select>
   </div>
 
@@ -103,8 +101,8 @@ $rate = ($time == "morning" ? 200 : 350);
   </div>
 
   <p class="text">You have selected <span id="count">0</span> seats for a price of Rs. <span id="total">0</span></p>
+  <div hidden id="occupiedSeats" value=""></div>
 
-  <div hidden id="occupiedArray">{}</div>
 
   <!-- Payment -->
   <a href="payment.php"> <input type="submit" value="Confirm Purchase" id="confirmButton"></a>
