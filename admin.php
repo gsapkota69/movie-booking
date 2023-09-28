@@ -25,6 +25,7 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
     <input id="panel-1-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
     <input id="panel-2-ctrl" class="panel-radios" type="radio" name="tab-radios">
     <input id="panel-3-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <input id="panel-4-ctrl" class="panel-radios" type="radio" name="tab-radios">
 
     <input id="nav-ctrl" class="panel-radios" type="checkbox" name="nav-checkbox">
 
@@ -48,6 +49,9 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
             <label class="panel-label" for="panel-3-ctrl">Payment</label>
         </li><!--INLINE-BLOCK FIX
 -->
+<li id="li-for-panel-4">
+            <label class="panel-label" for="panel-4-ctrl">Admin</label>
+        </li><!--INLINE-BLOCK FIX -->
         <label id="close-nav-label" for="nav-ctrl">Close</label>
     </ul>
 
@@ -245,7 +249,7 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
                                     class="line"></span>
                                 <?php
                                 $conn        = mysqli_connect("localhost", "root", "", "movies");
-                                $table_sql   = "SELECT * FROM `payment`";
+                                $table_sql   = "SELECT * FROM `admin`";
                                 $table_query = mysqli_query($conn, $table_sql);
                                 if (!mysqli_num_rows($table_query) > 0) {
                                     echo ("No data found");
@@ -289,6 +293,67 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
     </tbody>
 </table>
 </form>
+                            </div>      
+                            ");
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </section>
+            <!-- Panel to edit and delete admins -->
+            <section id="panel-4">
+            <main>
+                    <div class="addData">
+                        <h1>Edit Admins</h1>
+                            <div class="innersection">
+
+                                <span class="line"></span><span class="line"></span><span class="line"></span><span
+                                    class="line"></span>
+                                <?php
+                                $conn        = mysqli_connect("localhost", "root", "", "movies");
+                                $table_sql   = "SELECT * FROM `admin`";
+                                $table_query = mysqli_query($conn, $table_sql);
+                                if (!mysqli_num_rows($table_query) > 0) {
+                                    echo ("No data found");
+                                } else {
+                                    while ($user_data = mysqli_fetch_assoc($table_query)) {
+                                        $id       = $user_data['id'];
+                                        $name     = $user_data['name'];
+                                        $email    = $user_data['email'];
+                                        $username = $user_data['username'];
+                                        $password = $user_data['password'];
+                                        echo ("
+                            <div>
+                            <form method='POST' action='editusers.php'>
+                            <table class='table'>
+    <thead>
+        <tr>
+            <th scope='col'>id</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Email</th>
+            <th scope='col'>Username</th>
+            <th scope='col'>Edit</th>
+            <th scope='col'>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope='row'> <input type='hidden' name='id' value='$id'></th>
+            <td>   <input type='text' name='name' value='$name'></td>
+            <td> <input type='text' name='email' value='$email'></td>
+            <td><input type='text' name='username' value='$username'></td>
+            <td><button class='btn btn-primary'><a href='editusers.php?id=$id' class='text-light'>Edit</a></button></td>
+
+            <td><button class='btn btn-danger'><a href='delete.php?id=$id' class='text-light'>Delete</a></button></td>
+
+        </tr>
+       
+    </tbody>
+</table>
                             </div>      
                             ");
                                     }
