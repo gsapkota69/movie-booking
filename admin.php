@@ -140,6 +140,7 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
                                             $name        = $movie_data['name'];
                                             $description = $movie_data['description'];
                                             $images      = $movie_data['images'];
+                                            $show_time = $movie_data['show_time'];
                                             echo ("
                             <div>
                             <form method='POST' action='editmovies.php'>
@@ -150,6 +151,7 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
             <th scope='col'>Name</th>
             <th scope='col'>Description</th>
             <th scope='col'>Image</th>
+            <th scope='col'>Show Time</th>
             <th scope='col'>Edit</th>
             <th scope='col'>Delete</th>
 
@@ -160,7 +162,8 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
             <th scope='row'> <input type='text' name='title' value='$title'></th>
             <td>   <input type='text' name='name' value='$name'></td>
             <td> <input type='text' name='description' value='$description '></td>
-            <td><input type='text' name='username' value='$images'></td>
+            <td><input type='text' name='images' value='$images'></td>
+            <td><input type='text' name='show_time' value='$show_time'></td>
             <td><button class='btn btn-primary'><a href='editmovies.php' class='text-light'>Edit</a></button></td>
 
             <td><button class='btn btn-danger'><a href='' class='text-light'>Delete</a></button></td>
@@ -272,7 +275,7 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
             <th scope='col'>Email</th>
             <th scope='col'>Address</th>
             <th scope='col'>City</th>
-            <th scope='col'>Creditcardno</th>
+            
 
         </tr>
     </thead>
@@ -283,10 +286,8 @@ if (!isset($_SESSION['id']) || $_SESSION['isAdmin'] != true) {
             <td> <input type='text' name='email' value='$email'></td>
             <td><input type='text' name='address' value='$address'></td>
             <td><input type='text' name='city' value='$city'></td>
-            <td><input type='text' name='creditcardno' value='$creditcardno'></td>
-            <td><button class='btn btn-primary'><a href='editpayment.php' class='text-light'>Edit</a></button></td>
-
-            <td><button class='btn btn-danger'><a href='' class='text-light'>Delete</a></button></td>
+            
+           
 
         </tr>
        

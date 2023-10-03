@@ -7,7 +7,7 @@ if (!isset($_SESSION['id'])) {
   echo ("<script>alert('Login to continue'); window.location.href='login.php';</script>");
 }
 $time = $_GET['time'];
-$rate = ($time == "morning" ? 200 : 350);
+$rate = ($time == "6 AM" ? 200 : 350);
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -58,8 +58,10 @@ session_start();
                         <div class="col-md-2 bg-white text-dark p-3 rounded ms-5 ">
                             <h6 class="">Hall 1</h6>
                         </div>
+                       
                         <div class="col-md-1 ms-5 bg-white text-dark p-3 rounded">
-                            <h6><a href="screen.php?time=morning&movie=<?php echo ($movie) ?>">6 AM</a></h6>
+                        <h6><a href="screen.php?time=<?php echo($movie_data['show_time']);?>&movie=<?php echo ($movie) ?>"><?php echo($movie_data['show_time']);?></a></h6>
+
                         </div>
                     </div>
                 </div>
