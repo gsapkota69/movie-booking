@@ -87,14 +87,3 @@ function readFromSession(){
 
 readFromSession();
 
-//Set money for esewa
-function esewa(){
-  const totalMoney = +document.getElementById("total").innerText;
-  console.log(total);
-  document.getElementById('tAmt').value = totalMoney;
-  console.log(document.getElementById('tAmt'));
-  document.getElementById('txAmt').value = totalMoney*13/100;
-  document.getElementById('amt').value = totalMoney*86/100;
-  document.getElementById('psc').value = totalMoney*1/100;
-  document.getElementById('pdc').value = 0;
-}
