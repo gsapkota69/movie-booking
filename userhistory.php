@@ -24,18 +24,20 @@ session_start();
                 class="line"></span>
             <?php
             $conn        = mysqli_connect("localhost", "root", "", "movies");
-            $id = $_SESSION["id"];
-            $table_sql   = "SELECT * FROM `users` WHERE id = '$id' ";
+            $email = $_SESSION["email"];
+            $table_sql   = "SELECT * FROM `payment` WHERE email = '$email' ";
             $table_query = mysqli_query($conn, $table_sql);
             if (!mysqli_num_rows($table_query) > 0) {
                 echo ("No data found");
             } else {
                 while ($user_data = mysqli_fetch_assoc($table_query)) {
                     $id       = $user_data['id'];
-                    $name     = $user_data['name'];
+                    $name     = $user_data['fullname'];
                     $email    = $user_data['email'];
-                    $username = $user_data['username'];
-                    $password = $user_data['password'];
+                    $address = $user_data['address'];
+                    $city = $user_data['city'];
+                    $movie = $user_data['booked_movie'];
+                    $time = $user_data['booked_time'];
                     echo ("
         <div>
         <form method='POST' action='editusers.php'>
@@ -45,9 +47,9 @@ session_start();
 <th scope='col'>id</th>
 <th scope='col'>Name</th>
 <th scope='col'>Email</th>
-<th scope='col'>Username</th>
+<th scope='col'>Address</th>
 <th scope='col'>Movie</th>
-<th scope='col'>SeatId</th>
+<th scope='col'>Time</th>
 <th scope='col'>Cancel</th>
 
 </tr>
@@ -57,9 +59,9 @@ session_start();
 <th scope='row'> <input type='hidden' name='id' value='$id'></th>
 <td>   <input type='text' name='name' value='$name'></td>
 <td> <input type='text' name='email' value='$email'></td>
-<td><input type='text' name='username' value='$username'></td>
-<td><input type='text' name='movie' value= ''></td>
-<td><input type='text' name='seatid' value= ''></td>
+<td><input type='text' name='username' value='$address'></td>
+<td><input type='text' name='movie' value= '$movie'></td>
+<td><input type='text' name='seatid' value= '$time'></td>
 
 
 <td><button class='btn btn-danger'><a href='#' class='text-light'>Cancel Booking</a></button></td>

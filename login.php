@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
         if ($password == $row["password"]) {
             $_SESSION["isAdmin"] = false;
             $_SESSION["id"]    = $row["id"];
+            $_SESSION["email"]  = $row["email"];
             header("location:index.php");
         } else {
             echo "<script> alert('Wrong Password'); </script>";
