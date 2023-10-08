@@ -36,15 +36,16 @@ if (isset($_POST['submit'])) {
         if (!preg_match('/^[0-9]{16}$/', $creditcardno)) {
             echo "<script>alert('Invalid credit card number.')</script>";
         } else {
-            $sql = "INSERT INTO payment (fullname, email, address, city, creditcardno) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO payment (fullname, email, address, city, creditcardno, booked_movie, booked_time) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
 
             if ($stmt) {
-                mysqli_stmt_bind_param($stmt, "sssss", $fullname, $email, $address, $city, $creditcardno);
+                mysqli_stmt_bind_param($stmt, "sssssss", $fullname, $email, $address, $city, $creditcardno, $fullNameDb, $time);
                 if (mysqli_stmt_execute($stmt)) {
                     $sql = "UPDATE nowshowing SET occupiedSeats = '$occupiedSeats' WHERE title = '$movie'";
                     mysqli_query($conn, $sql);
-                    echo("<script>alert('Payment successful.');
+                    echo("  
+                    <script>alert('Booking Successful!');
                     window.location.href='index.php';
                         </script>");
                 } else {
@@ -83,7 +84,8 @@ if (isset($_POST['submit'])) {
                     Full name
                     <input type="text" name="fullname" placeholder="Enter name" required>
                     Email
-                    <input type="text" name="email" placeholder="Enter email" required> <br>
+                    <?php $emailSession = $_SESSION['email']; ?>
+                    <input type="text" name="email" placeholder="Enter email" value="<?php echo($emailSession);?>" readonly required> <br>
 
                     Address
                     <input type="text" name="address" placeholder="Enter address" required>
