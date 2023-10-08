@@ -137,7 +137,7 @@ session_start();
 
             <ul>
                 <h4 class="Link-heading">Help</h4>
-                <li class="link-item"><a href="#">Account and Billing</a></li>
+                <li class="link-item"><a href="./userhistory.php">Booking History</a></li>
                 <li class="link-item"><a href="#">Plans and Pricing</a></li>
                 <li class="link-item"><a href="#">Supported Devices</a></li>
                 <li class="link-item"><a href="#">Accessibility</a></li>
