@@ -9,10 +9,11 @@ $movie = $_GET['movie'];
 $time = $_GET['time'];
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
-
-$fullNameSql = "SELECT `name` FROM nowshowing WHERE title = '$movie'";
+if(isset($_GET['movie'])){
+    $fullNameSql = "SELECT * FROM nowshowing WHERE title = '$movie'";
 $fullNameQuery = mysqli_query($conn, $fullNameSql);
 $fullNameDb = mysqli_fetch_assoc($fullNameQuery)['name'];
+}
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -41,10 +42,11 @@ if (isset($_POST['submit'])) {
             if ($stmt) {
                 mysqli_stmt_bind_param($stmt, "sssss", $fullname, $email, $address, $city, $creditcardno);
                 if (mysqli_stmt_execute($stmt)) {
-                    $sql = "INSERT INTO nowshowing (occupiedSeats) VALUES ('$occupiedSeats') WHERE movie = '$movie'";
+                    $sql = "UPDATE nowshowing SET occupiedSeats = '$occupiedSeats' WHERE title = '$movie'";
                     mysqli_query($conn, $sql);
-                    echo "Payment successful!";
-                    header("Location: index.php");
+                    echo("<script>alert('Payment successful.');
+                    window.location.href='index.php';
+                        </script>");
                 } else {
                     echo "Error: " . mysqli_error($conn);
                 }

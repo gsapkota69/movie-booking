@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +24,8 @@
                 class="line"></span>
             <?php
             $conn        = mysqli_connect("localhost", "root", "", "movies");
-            $table_sql   = "SELECT * FROM `users`";
+            $id = $_SESSION["id"];
+            $table_sql   = "SELECT * FROM `users` WHERE id = '$id' ";
             $table_query = mysqli_query($conn, $table_sql);
             if (!mysqli_num_rows($table_query) > 0) {
                 echo ("No data found");
