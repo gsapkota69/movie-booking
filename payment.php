@@ -5,8 +5,14 @@ $host = 'localhost';
 $user = 'root';
 $pass = '';
 $dbname = 'movies';
+$movie = $_GET['movie'];
+$time = $_GET['time'];
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
+
+$fullNameSql = "SELECT `name` FROM nowshowing WHERE title = '$movie'";
+$fullNameQuery = mysqli_query($conn, $fullNameSql);
+$fullNameDb = mysqli_fetch_assoc($fullNameQuery)['name'];
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -19,8 +25,6 @@ if (isset($_POST['submit'])) {
     $city = $_POST['city'];
     $creditcardno = $_POST['creditcardno'];
     $occupiedSeats = $_POST['occupiedSeats'];
-    $movie = $_POST['movie'];
-    $time = $_POST['time'];
 
     // Perform server-side validation
     // You should add more specific validation rules here.
@@ -69,6 +73,9 @@ if (isset($_POST['submit'])) {
         <div class="container">
             <form method="post">
                 <div class="left">
+                    <h3>Selected Movie and Time: </h3>
+                    <input type="text" name="movie" value="<?php echo ($fullNameDb); ?>" readonly>
+                    <input type="text" name="time" value="<?php echo ($time); ?>" readonly>
                     <h3>BILLING ADDRESS</h3>
 
                     Full name
