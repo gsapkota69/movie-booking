@@ -103,7 +103,7 @@ $rate = ($time == "6 AM" ? 200 : 350);
   <p class="text">You have selected <span id="count">0</span> seats for a price of Rs. <span id="total">0</span></p>
 
   <!-- Payment -->
-  <a href="payment.php"> <input type="submit" value="Confirm Purchase" id="confirmButton" onclick="returnOccupied()"></a>
+  <a href="payment.php?movie=<?php echo($movie); ?>&time=<?php echo($time); ?>"> <input type="submit" value="Confirm Purchase" id="confirmButton" onclick="returnOccupied()"></a>
   <script src="./js/screen.js"></script>
   <script>
     document.getElementById('confirmButton').addEventListener('click', function (event) {
