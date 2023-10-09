@@ -40,7 +40,6 @@ session_start();
                     $time = $user_data['booked_time'];
                     echo ("
         <div>
-        <form method='POST' action='editusers.php'>
         <table class='table'>
 <thead>
 <tr>
@@ -64,7 +63,7 @@ session_start();
 <td><input type='text' name='seatid' value= '$time'></td>
 
 
-<td><button class='btn btn-danger'><a href='#' class='text-light'>Cancel Booking</a></button></td>
+<td><button class='btn btn-danger'><a href='./cancel.php?id=$id' class='text-light'>Cancel Booking</a></button></td>
 
 </tr>
 
@@ -76,7 +75,6 @@ session_start();
             }
             ?>
         </div>
-    </form>
 </div>
 </body>
 </html>
